@@ -239,4 +239,334 @@
         }
 
         /* Mockup Components */
-        .mockup
+        .mockup-box {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+
+        .character-select-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .char-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.75rem;
+            background: #f8fafc;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .char-card.active {
+            border-color: var(--accent-gold);
+            background: #fefce8;
+        }
+
+        .badge-graphic {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            font-size: 0.75rem;
+            text-align: center;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Approach Cards */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .approach-card {
+            background: var(--bg-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+        }
+
+        .approach-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .approach-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--card-border);
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        footer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 850px) {
+            .project-card, .project-card.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr !important;
+            }
+            .project-preview {
+                border-right: none !important;
+                border-left: none !important;
+                border-bottom: 1px solid var(--card-border);
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="#">Laura DePue</a></div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#approach">Approach</a>
+            <a href="#about">About</a>
+            <a href="mailto:LauraLDePue@gmail.com">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <span class="pill-badge">LXD • EdTech • Narrative & Game Design • UI/UX</span>
+            <h1>Designing Stories People Explore.<br>Learning Environments That Perform.</h1>
+            <p>I am a multidisciplinary learning experience strategist and higher education technology specialist. I blend research-backed narrative design, gamification, UI/UX architecture, and strict digital accessibility (WCAG/UDL) to build transformative digital learning environments.</p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>72%</h3>
+                    <p>Empathy gain in mobile interactive scenario study</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10K+</h3>
+                    <p>Students impacted across adaptive learning builds</p>
+                </div>
+                <div class="stat-item">
+                    <h3>16%</h3>
+                    <p>First-year seminar pass rate increase</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>WCAG & ADA compliant course frameworks</p>
+                </div>
+            </div>
+        </header>
+
+        <section id="work">
+            <div class="section-title">
+                <h2>Featured Projects & Case Studies</h2>
+                <p>Selected work across interactive storytelling, gamified LMS architecture, healthcare scenario design, and accessible EdTech systems.</p>
+            </div>
+
+            <!-- Project 1: Pokemon Gamified Course -->
+            <article class="project-card">
+                <div class="project-preview">
+                    <div class="mockup-box">
+                        <div style="background:#0056b3; color:white; padding:8px 12px; font-weight:bold; font-size:0.85rem; border-radius:4px; display:flex; justify-content:space-between; align-items:center;">
+                            <span>POKÉMON: GLOBAL CULTURES</span>
+                            <span style="background:#f4b400; color:#111; font-size:0.7rem; padding:2px 6px; border-radius:3px;">LEVEL UP!</span>
+                        </div>
+                        <p style="font-size:0.75rem; color:#666; margin:10px 0 5px;">SELECT CHARACTER PATH (LMS CHOICE ARCHITECTURE):</p>
+                        <div class="character-select-grid">
+                            <div class="char-card active">
+                                <div style="font-size:1.2rem;">🧙‍♂️</div>
+                                <div>WIZARD</div>
+                            </div>
+                            <div class="char-card">
+                                <div style="font-size:1.2rem;">🎮</div>
+                                <div>GAMER</div>
+                            </div>
+                            <div class="char-card">
+                                <div style="font-size:1.2rem;">🥋</div>
+                                <div>KENSHUSEI</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px; padding:10px; background:#f1f5f9; border-radius:6px; font-size:0.75rem; text-align:center;">
+                            🏆 <strong>GENIUS CERTIFICATE UNLOCKED</strong><br>
+                            <em>Extra Points & Creative Submissions Enabled</em>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <span class="tag">Gamification & LMS Choice Architecture</span>
+                    <h3>Pokémon: Global and Local Cultures</h3>
+                    <p>Redesigned a full-semester anthropology course into a 6-week, fully accessible online learning path. Pushed the structural limits of the LMS by building an intricate multi-track linking system where students choose 1 of 3 character paths (Wizard, Gamer, or Kenshusei) to navigate the curriculum.</p>
+                    <p>Replaced high-stakes exams with Pecha Kucha presentations and book reviews, integrating badge rewards and extra-credit "Genius Certificate" modules.</p>
+                    <div class="skills-list">
+                        <span class="skill-pill">Gamification</span>
+                        <span class="skill-pill">LMS Linking Systems</span>
+                        <span class="skill-pill">Choice Architecture</span>
+                        <span class="skill-pill">Miami University</span>
+                        <span class="skill-pill">WCAG 2.1 Compliant</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2: Surviving the Border -->
+            <article class="project-card reverse">
+                <div class="project-preview">
+                    <div class="mockup-box" style="text-align:center;">
+                        <svg width="100" height="60" viewBox="0 0 100 60" style="margin-bottom:10px;">
+                            <rect x="35" y="0" width="30" height="20" rx="3" fill="#0056b3" />
+                            <path d="M50 20 L25 35 M50 20 L75 35" stroke="#94a3b8" stroke-width="2" />
+                            <rect x="10" y="35" width="30" height="20" rx="3" fill="#008080" />
+                            <rect x="60" y="35" width="30" height="20" rx="3" fill="#008080" />
+                        </svg>
+                        <div style="font-size:0.8rem; font-weight:bold; color:#1e293b;">Branching Decision Architecture</div>
+                        <p style="font-size:0.75rem; color:#64748b; margin-top:4px;">ARIS Mobile Platform • Experiential Learning</p>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <span class="tag">Interactive Narrative & Scenario-Based Learning</span>
+                    <h3>Surviving the Border (Mobile Game & LX Research)</h3>
+                    <p>Designed a branching mobile interactive scenario on the ARIS platform where players experience the journey of a 17-year-old Honduran youth navigating sociopolitical choices to cross the U.S. border.</p>
+                    <p>Conducted formal empirical research evaluating empathy evoke mechanics and sociocultural awareness. Post-game findings revealed that <strong>72% of participants experienced measurably increased empathy</strong> through narrative decision architecture.</p>
+                    <div class="skills-list">
+                        <span class="skill-pill">Branching Storytelling</span>
+                        <span class="skill-pill">ARIS Mobile Platform</span>
+                        <span class="skill-pill">LX Research & Analytics</span>
+                        <span class="skill-pill">Empathy Mechanics</span>
+                        <span class="skill-pill">Ohio University</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3: Holmes Health Network -->
+            <article class="project-card">
+                <div class="project-preview">
+                    <div class="mockup-box">
+                        <div style="font-size:0.8rem; font-weight:bold; color:#0056b3; margin-bottom:8px; text-transform:uppercase;">Cast of Characters (Case Study)</div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.7rem;">
+                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">👤 Ben Hughes, CDO</div>
+                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">🩺 Dr. Tori Johnson, MD</div>
+                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">💻 Aaron Miller, IT Analyst</div>
+                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">💊 Dr. Olivia Torres, PharmD</div>
+                        </div>
+                        <div style="margin-top:8px; font-size:0.7rem; color:#64748b; text-align:center;">6-Module Narrative Arc: EHR Digital Transformation</div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <span class="tag">Scenario & Character-Driven Learning</span>
+                    <h3>Holmes Health Network: Healthcare LX Case Study</h3>
+                    <p>Architected an overarching 6-module narrative scenario for healthcare digital transformation courses. Students follow a fictional health system navigating EHR adoption, change management, and telehealth integration through a multi-character perspective (Chief Digital Officer, Physicians, Pharmacists, and IT Analysts).</p>
+                    <div class="skills-list">
+                        <span class="skill-pill">Scenario Design</span>
+                        <span class="skill-pill">Persona Architecture</span>
+                        <span class="skill-pill">Case Study Development</span>
+                        <span class="skill-pill">Corporate & Higher Ed Training</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 4: Canvas Badges & Accessibility -->
+            <article class="project-card reverse">
+                <div class="project-preview">
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="badge-graphic" style="background:#991b1b;">
+                            RUN WITH<br>CANVAS
+                        </div>
+                        <div class="badge-graphic" style="background:#065f46;">
+                            GROW WITH<br>CANVAS
+                        </div>
+                        <div class="badge-graphic" style="background:#1e40af;">
+                            TRANSFORM<br>CANVAS
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <span class="tag">EdTech Systems & UI Visual Language</span>
+                    <h3>Faculty Development & Canvas UI Badge Systems</h3>
+                    <p>Designed institutional faculty development frameworks and visual credentialing systems ("Run, Grow, Transform with Canvas") to drive LMS adoption. As Director of Teaching & Learning and Quality Matters Peer Reviewer, delivered college-wide workshops on WCAG compliance, document remediation, and Universal Design for Learning (UDL).</p>
+                    <div class="skills-list">
+                        <span class="skill-pill">Canvas LMS Admin</span>
+                        <span class="skill-pill">Quality Matters (QM)</span>
+                        <span class="skill-pill">Visual UI Systems</span>
+                        <span class="skill-pill">WCAG / UDL</span>
+                        <span class="skill-pill">Albright College</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="approach">
+            <div class="section-title">
+                <h2>My Core LXD & Design Pillars</h2>
+                <p>Bridging creative storytelling mechanics with rigorous educational technology standards.</p>
+            </div>
+
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <h3>01 / Narrative & Scenario Design</h3>
+                    <p>Transforming static information into immersive decision paths. Utilizing branching choices, persona arcs, and research-backed storytelling to build empathy and critical thinking.</p>
+                </div>
+                <div class="approach-card">
+                    <h3>02 / Systems, Gamification & UI/UX</h3>
+                    <p>Engineered LMS choice architecture, progression loops, badging systems, and intuitive visual hierarchies that turn complex coursework into engaging user journeys.</p>
+                </div>
+                <div class="approach-card">
+                    <h3>03 / Universal Access & EdTech Infrastructure</h3>
+                    <p>Foundational commitment to WCAG 2.1 standards, Quality Matters (QM) rubrics, UDL principles, and standardized SOP documentation for seamless institutional delivery.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-title">
+                <h2>About Laura DePue</h2>
+            </div>
+            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 900px; margin-bottom: 1.5rem;">
+                With over 15 years of experience spanning higher education, edtech startups, and learning design, I hold a Master of Library and Information Science (MLIS) from Kent State University, a Master of Theological Studies (MTS), and doctoral coursework in Instructional Technology & Gamification from Ohio University.
+            </p>
+            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 900px;">
+                I specialize in taking complex academic and organizational challenges—whether it is LMS migration, digital accessibility compliance, or course engagement—and building clear, beautiful, and accessible digital learning solutions.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2>Let's build engaging learning experiences together.</h2>
+            <p>Based in Parkersburg, WV • Open to Remote & On-Site Higher Ed / EdTech Roles</p>
+            <div>
+                <a href="mailto:LauraLDePue@gmail.com" style="margin-right: 1.5rem;">LauraLDePue@gmail.com</a>
+                <a href="https://linkedin.com/in/lauradepue" target="_blank">LinkedIn Profile</a>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 3rem; color: #94a3b8;">© 2026 Laura DePue. Portfolio designed for accessibility and clarity.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

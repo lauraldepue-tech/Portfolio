@@ -1,82 +1,267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laura DePue, MLIS, MTS | LXD, EdTech, Narrative & Game Designer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6fc">
+  <meta name="description" content="Laura DePue — learning experience, educational technology, narrative, game, and UI/UX design. Research-led experiences that help people learn, explore, and feel connected.">
+  <title>Laura DePue | Learning, Narrative & Experience Design</title>
   <style>
     :root {
-      --primary: #0056b3;
-      --primary-dark: #003d80;
-      --accent-gold: #f4b400;
-      --accent-teal: #008080;
-      --text-dark: #1f2937;
-      --text-muted: #4b5563;
-      --bg-main: #ffffff;
-      --bg-alt: #f8fafc;
-      --card-border: #e2e8f0;
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --ink: #211d2b;
+      --muted: #635d70;
+      --purple: #7653a6;
+      --purple-dark: #4c3474;
+      --lavender: #eee7f7;
+      --lilac: #f8f5fc;
+      --peach: #f5e5dc;
+      --sage: #e7eee8;
+      --paper: #fffefa;
+      --line: #e5dfeb;
+      --white: #fff;
+      --radius: 22px;
+      --shadow: 0 16px 44px rgba(44, 29, 64, .08);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.65 var(--sans); }
+    a { color: var(--purple-dark); text-underline-offset: .22em; }
+    a:hover { color: var(--purple); }
+    a:focus-visible, button:focus-visible { outline: 3px solid #b18bdd; outline-offset: 4px; border-radius: 4px; }
+    .skip-link { position: absolute; left: 1rem; top: -5rem; padding: .75rem 1rem; background: var(--ink); color: white; z-index: 1000; }
+    .skip-link:focus { top: 1rem; }
+    .wrap { width: min(1120px, calc(100% - 2.5rem)); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,254,250,.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(229,223,235,.8); }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { font-weight: 800; letter-spacing: -.04em; text-decoration: none; color: var(--ink); font-size: 1.08rem; }
+    .brand span { color: var(--purple); }
+    .nav-links { display: flex; gap: clamp(.8rem, 2.2vw, 1.8rem); align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); font-size: .9rem; text-decoration: none; font-weight: 650; }
+    .nav-links a:hover { color: var(--purple-dark); }
+    .nav-links .contact-link { padding: .55rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--purple-dark); }
+    .hero { padding: clamp(4.2rem, 9vw, 7.5rem) 0 4.5rem; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 440px; height: 440px; border-radius: 50%; right: -180px; top: -220px; background: radial-gradient(circle, #e9def5 0%, rgba(233,222,245,0) 70%); pointer-events: none; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; color: var(--purple-dark); text-transform: uppercase; letter-spacing: .13em; font-size: .75rem; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: #b79ad8; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 900px; font-size: clamp(2.7rem, 6.6vw, 5.6rem); line-height: 1.02; letter-spacing: -.065em; margin: 1.25rem 0 1.5rem; font-weight: 780; }
+    h1 em { font-family: var(--serif); font-weight: 500; color: var(--purple); letter-spacing: -.06em; }
+    .hero-copy { max-width: 760px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.8; }
+    .hero-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin: 2rem 0 2.7rem; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 999px; padding: .85rem 1.25rem; text-decoration: none; font-weight: 750; border: 1px solid var(--purple-dark); }
+    .button.primary { color: white; background: var(--purple-dark); }
+    .button.primary:hover { background: var(--purple); color: white; }
+    .button.secondary { color: var(--purple-dark); background: transparent; border-color: var(--line); }
+    .button.secondary:hover { background: var(--lilac); }
+    .discipline-list { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .discipline-list span { font-size: .82rem; font-weight: 700; color: #57476c; background: var(--lilac); border: 1px solid #ece4f5; padding: .45rem .8rem; border-radius: 999px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); margin-top: 3rem; overflow: hidden; }
+    .stat { padding: 1.4rem clamp(1rem, 3vw, 2rem); }
+    .stat + .stat { border-left: 1px solid var(--line); }
+    .stat strong { display: block; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; letter-spacing: -.05em; color: var(--purple-dark); }
+    .stat span { display: block; color: var(--muted); font-size: .86rem; margin-top: .45rem; }
+    section { padding: 5.5rem 0; }
+    .section-head { display: grid; grid-template-columns: minmax(0, .9fr) minmax(260px, 1fr); gap: 2rem; align-items: end; margin-bottom: 2.3rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.12; letter-spacing: -.055em; margin: .75rem 0 0; }
+    .section-head p { color: var(--muted); max-width: 570px; margin: 0; }
+    .projects { background: var(--lilac); border-block: 1px solid #f0e9f7; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 24px rgba(44,29,64,.04); display: flex; flex-direction: column; min-width: 0; }
+    .project-art { min-height: 225px; padding: 1.6rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .art-border { background: linear-gradient(135deg, #e6d8ee, #f5e8dd); }
+    .art-border::before, .art-border::after { content: ""; position: absolute; border: 1px solid rgba(76,52,116,.25); border-radius: 50%; width: 260px; height: 260px; transform: rotate(-22deg); }
+    .art-border::after { width: 190px; height: 300px; transform: rotate(34deg); }
+    .art-title { position: relative; z-index: 1; text-align: center; max-width: 320px; }
+    .art-title small { display: block; text-transform: uppercase; letter-spacing: .18em; font-size: .67rem; font-weight: 800; color: #5c4777; margin-bottom: .6rem; }
+    .art-title strong { display: block; font: 500 clamp(1.9rem, 3.8vw, 2.8rem)/1.03 var(--serif); color: #3b2b50; letter-spacing: -.04em; }
+    .art-pokemon { background: linear-gradient(140deg, #f8e7a9, #f8d7cc 58%, #e5dff6); }
+    .orbit { width: 150px; height: 150px; border: 2px solid rgba(75,53,109,.48); border-radius: 50%; position: relative; display: grid; place-items: center; transform: rotate(-15deg); }
+    .orbit::before, .orbit::after { content: ""; position: absolute; width: 190px; height: 75px; border: 2px solid rgba(75,53,109,.42); border-radius: 50%; }
+    .orbit::after { transform: rotate(65deg); }
+    .orbit span { width: 56px; height: 56px; border-radius: 50%; background: #fff9e9; border: 2px solid #7653a6; display: grid; place-items: center; color: #4c3474; font-size: 1.2rem; font-weight: 800; z-index: 1; }
+    .art-accounting { background: linear-gradient(135deg, #dce9e0, #f4eee1); }
+    .ledger { width: min(260px, 90%); padding: 1.1rem; background: rgba(255,255,255,.76); border: 1px solid rgba(56,87,67,.2); box-shadow: 10px 10px 0 rgba(56,87,67,.08); transform: rotate(2deg); }
+    .ledger span { display: block; height: 8px; background: #b9cfc0; border-radius: 8px; margin: .55rem 0; }
+    .ledger span:nth-child(2) { width: 75%; } .ledger span:nth-child(3) { width: 88%; } .ledger span:nth-child(4) { width: 58%; }
+    .ledger strong { display: block; font: 500 1.3rem var(--serif); color: #385743; margin-bottom: .75rem; }
+    .art-ux { background: linear-gradient(135deg, #dcdcf6, #f4e2e9); }
+    .interface { width: min(290px, 92%); display: grid; grid-template-columns: 55px 1fr; gap: .55rem; transform: rotate(-2deg); }
+    .interface aside { min-height: 125px; background: #7562a2; border-radius: 9px; }
+    .interface main { padding: .7rem; background: rgba(255,255,255,.85); border: 1px solid rgba(76,52,116,.15); border-radius: 9px; }
+    .interface main span { display: block; height: 7px; background: #d4c8e6; margin-bottom: .5rem; border-radius: 6px; }
+    .interface main span:first-child { width: 72%; height: 12px; background: #9278b8; }
+    .interface main span:last-child { width: 55%; }
+    .project-body { padding: 1.65rem; display: flex; flex-direction: column; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: .85rem; }
+    .tags span { font-size: .69rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 800; color: var(--purple-dark); background: #f1ebf8; padding: .25rem .55rem; border-radius: 5px; }
+    .project-body h3 { font-size: 1.42rem; letter-spacing: -.035em; line-height: 1.25; margin-bottom: .7rem; }
+    .project-body p { color: var(--muted); font-size: .94rem; margin-bottom: 1rem; }
+    .project-meta { border-top: 1px solid var(--line); margin-top: auto; padding-top: .9rem; color: #766c82; font-size: .8rem; }
+    .project-meta strong { color: var(--ink); }
+    .note { color: var(--muted); font-size: .84rem; margin-top: 1.25rem; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-top: 2.2rem; }
+    .approach-card { border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; background: white; }
+    .approach-card .number { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: var(--purple-dark); background: var(--lavender); font-weight: 850; margin-bottom: 1rem; }
+    .approach-card h3 { font-size: 1.12rem; margin-bottom: .45rem; }
+    .approach-card p { color: var(--muted); font-size: .9rem; margin: 0; }
+    .about { background: #fcfaf7; border-block: 1px solid #f0e9e2; }
+    .about-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .about-stamp { border-radius: var(--radius); background: var(--peach); min-height: 300px; display: flex; align-items: center; justify-content: center; padding: 2rem; text-align: center; }
+    .about-stamp span { max-width: 280px; font: 500 clamp(1.9rem, 3vw, 2.8rem)/1.13 var(--serif); color: #704c48; }
+    .about-copy p { color: var(--muted); }
+    .credential-list { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.2rem; }
+    .credential-list span { border: 1px solid var(--line); border-radius: 8px; padding: .45rem .7rem; font-size: .82rem; font-weight: 700; color: #57476c; background: white; }
+    .contact { text-align: center; }
+    .contact-inner { background: var(--purple-dark); color: white; border-radius: 28px; padding: clamp(2.2rem, 6vw, 4.5rem) 1.5rem; position: relative; overflow: hidden; }
+    .contact-inner::before { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; width: 370px; height: 370px; right: -130px; top: -210px; }
+    .contact-inner .eyebrow { color: #e8d9f8; justify-content: center; }
+    .contact-inner h2 { max-width: 700px; margin: .8rem auto 1rem; position: relative; }
+    .contact-inner p { color: #e3d9ee; max-width: 620px; margin: 0 auto 1.6rem; position: relative; }
+    .contact-inner .button { position: relative; background: white; color: var(--purple-dark); border-color: white; }
+    footer { padding: 1.5rem 0 2rem; color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 1rem 0; gap: .7rem; }
+      .nav-links { gap: .65rem 1rem; }
+      .nav-links a { font-size: .84rem; }
+      .section-head, .about-layout { grid-template-columns: 1fr; gap: 1rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .stat + .stat { border-left: 0; border-top: 1px solid var(--line); }
+      .project-art { min-height: 200px; }
     }
-
-    body {
-      font-family: var(--font-sans);
-      color: var(--text-dark);
-      background-color: var(--bg-main);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    header.hero {
-      background-color: var(--primary-dark);
-      color: #ffffff;
-      padding: 4rem 0 3rem;
-      border-bottom: 4px solid var(--accent-gold);
-    }
-
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--accent-gold);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-summary {
-      font-size: 1.1rem;
-      max-width: 800px;
-      line-height: 1.7;
-      opacity: 0.95;
-    }
-
-    .metrics-bar {
-      background-color: var(--bg-alt);
-      border-bottom: 1px solid var(--card-border);
-      padding: 2rem 0;
-    }
-
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    .metric-card {
-      background: var(--bg-main);
-      padding: 1.2
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Laura DePue home">Laura DePue<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#work">Selected work</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a class="contact-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <span class="eyebrow">Research · Story · Interaction</span>
+        <h1>Designing experiences<br>that help people <em>learn,</em><br><em>play, and connect.</em></h1>
+        <p class="hero-copy">I’m Laura DePue, a learning experience and interaction designer working across educational technology, narrative, games, and UI/UX. I bring research, accessible design, visual storytelling, and systems thinking together to make complex experiences feel clear, human, and memorable.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="#about">A little about me</a>
+        </div>
+        <div class="discipline-list" aria-label="Areas of practice">
+          <span>Learning Experience Design</span><span>EdTech</span><span>Narrative Design</span><span>Game Design</span><span>UI/UX</span><span>Accessibility</span>
+        </div>
+        <div class="stats" aria-label="Selected experience highlights">
+          <div class="stat"><strong>10K+</strong><span>Learners reached through active and adaptive learning experiences</span></div>
+          <div class="stat"><strong>16%</strong><span>Reported pass-rate improvement following a collaborative seminar redesign</span></div>
+          <div class="stat"><strong>25+</strong><span>Workshops and learning experiences facilitated</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="projects" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Selected work</span><h2>Different formats.<br>One human-centered lens.</h2></div>
+          <p>From branching narrative to course architecture, I’m interested in how people make meaning: what they notice, what choices they have, and what helps an experience stay with them.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art art-border" role="img" aria-label="Abstract typographic artwork for the interactive narrative Surviving the Border">
+              <div class="art-title"><small>Interactive narrative · Research</small><strong>Surviving<br>the Border</strong></div>
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>Narrative design</span><span>Game-based learning</span><span>Research</span></div>
+              <h3>Surviving the Border</h3>
+              <p>An interactive, choice-driven story developed with Begum Sacak using the ARIS platform. Players follow a fictional Honduran teenager navigating the risks of migration, with decisions shaping the experience and its possible outcomes.</p>
+              <p>The project explored how interactive narrative can influence empathy, knowledge, and emotional response. In the study, 72% of participants reported increased empathy toward Latin American immigrants.</p>
+              <div class="project-meta"><strong>My role:</strong> Co-designer and research collaborator · <strong>Focus:</strong> narrative, interaction, research</div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art art-pokemon" role="img" aria-label="Abstract orbit illustration representing interconnected paths in a gamified Pokémon culture course">
+              <div class="orbit" aria-hidden="true"><span>↗</span></div>
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>Learning design</span><span>Gamification</span><span>UX</span></div>
+              <h3>Pokémon: Global and Local Cultures</h3>
+              <p>A gamified course concept organized around three character paths and connected learning-management-system navigation. The experience used familiar game structures to help learners move through course content with a clearer sense of progression.</p>
+              <div class="project-meta"><strong>Focus:</strong> learning journeys, course navigation, gamified structure</div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art art-accounting" role="img" aria-label="Abstract ledger illustration representing modular online course design">
+              <div class="ledger" aria-hidden="true"><strong>Learn in modules</strong><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>EdTech</span><span>Course architecture</span><span>Accessibility</span></div>
+              <h3>Managerial Accounting</h3>
+              <p>A modular online course designed for compressed terms and participation across locations. The work focused on organizing complex content into manageable pieces and creating a flexible structure learners could navigate.</p>
+              <div class="project-meta"><strong>Focus:</strong> modular design, content structure, flexible learning</div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art art-ux" role="img" aria-label="Abstract interface illustration representing accessible user experience design">
+              <div class="interface" aria-hidden="true"><aside></aside><main><span></span><span></span><span></span><span></span></main></div>
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>UI/UX</span><span>Accessibility</span><span>Visual systems</span></div>
+              <h3>Accessible Digital Experiences</h3>
+              <p>Across learning products and digital resources, I bring together information architecture, clear visual hierarchy, accessible content patterns, and practical systems thinking so people can understand what to do next.</p>
+              <div class="project-meta"><strong>Focus:</strong> user-centered design, accessibility, visual communication</div>
+            </div>
+          </article>
+        </div>
+        <p class="note">These are editorial cover illustrations, not original project screenshots. Original screen captures, diagrams, and artifacts can be restored into these spaces when the source files are available.</p>
+      </div>
+    </section>
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">How I work</span><h2>Make it meaningful.<br>Make it usable.</h2></div>
+          <p>My work sits at the intersection of what people need, what a story or system makes possible, and what the technology can support.</p>
+        </div>
+        <div class="approach-grid">
+          <article class="approach-card"><div class="number">01</div><h3>Start with people</h3><p>Use research, learner context, and user needs to understand the problem before choosing a format or feature.</p></article>
+          <article class="approach-card"><div class="number">02</div><h3>Shape the journey</h3><p>Design structure, choices, feedback, and content flow so the experience feels coherent instead of overwhelming.</p></article>
+          <article class="approach-card"><div class="number">03</div><h3>Make meaning visible</h3><p>Use accessible interaction, visual storytelling, and thoughtful language to help people orient themselves and stay engaged.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="wrap about-layout">
+        <div class="about-stamp" aria-hidden="true"><span>Curiosity is a design tool.</span></div>
+        <div class="about-copy">
+          <span class="eyebrow">About me</span>
+          <h2>A researcher’s questions.<br>A storyteller’s instincts.</h2>
+          <p>I’m a multidisciplinary designer with a background spanning higher education, student success, learning experience design, and digital learning. I’m especially drawn to work that combines clear systems with narrative, meaningful choices, and visual communication.</p>
+          <p>My approach is both analytical and creative: understand the people and context, find the through-line, and build an experience that respects the user’s attention and agency. I care about accessibility not as a final checklist, but as part of the design from the beginning.</p>
+          <div class="credential-list"><span>MLIS</span><span>MTS</span><span>Learning systems</span><span>Research & evaluation</span><span>Visual storytelling</span><span>Accessible design</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-inner">
+          <span class="eyebrow">Let’s connect</span>
+          <h2>Have a thoughtful experience to design?</h2>
+          <p>I’m interested in work that brings together learning, technology, interaction, and story—especially where clarity and human impact matter.</p>
+          <a class="button" href="mailto:laura.depue@gmail.com">Email Laura <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Laura DePue</span><span>Designed with curiosity, clarity, and care.</span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

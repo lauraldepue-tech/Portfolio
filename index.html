@@ -3,28 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura DePue | Learning Experience & Narrative Designer</title>
+    <title>Laura DePue | LXD, EdTech, Narrative & Game Designer</title>
     <style>
         :root {
-            --text-main: #1a1a1a;
-            --text-light: #555555;
-            --bg-main: #fcfcfc;
-            --bg-alt: #f4f4f4;
-            --accent: #0056b3;
+            --primary: #0056b3;
+            --primary-dark: #003d80;
+            --accent-gold: #f4b400;
+            --accent-teal: #008080;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --card-border: #e2e8f0;
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        
-        body {
-            font-family: var(--font-sans);
-            color: var(--text-main);
-            background-color: var(--bg-main);
-            line-height: 1.6;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+        }
+
         a {
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
         }
@@ -33,282 +41,202 @@
             text-decoration: underline;
         }
 
-        header, section, footer {
-            padding: 4rem 10%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 10%;
-            font-weight: 600;
-        }
-        
-        .nav-links a {
-            margin-left: 2rem;
-            color: var(--text-main);
+            padding: 1.5rem 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        /* Hero Section */
-        .hero h1 {
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0 4rem;
+            text-align: left;
+        }
+
+        .pill-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+            color: var(--text-dark);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            max-width: 850px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 820px;
             margin-bottom: 2rem;
         }
 
-        .tags {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            display: block;
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--bg-alt);
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
         }
 
-        /* Portfolio Grid */
-        .project {
+        .stat-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* Section Header */
+        .section-title {
+            margin: 5rem 0 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Case Study Card */
+        .project-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
-            align-items: center;
+            gap: 0;
         }
 
-        .project:nth-child(even) {
-            grid-template-columns: 1fr 1fr;
+        .project-card.reverse {
             direction: rtl;
         }
 
-        .project:nth-child(even) > * {
+        .project-card.reverse > * {
             direction: ltr;
         }
 
-        .project-img {
+        .project-preview {
             background-color: var(--bg-alt);
-            width: 100%;
-            aspect-ratio: 4/3;
-            border-radius: 8px;
-            object-fit: cover;
-            border: 1px solid #e0e0e0;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid var(--card-border);
         }
 
-        .project-content h2 {
-            font-size: 2rem;
-            margin: 0.5rem 0 1rem 0;
+        .project-card.reverse .project-preview {
+            border-right: none;
+            border-left: 1px solid var(--card-border);
         }
 
-        .tag-pill {
-            display: inline-block;
-            background: var(--bg-alt);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 0 0.5rem 0.5rem 0;
-            border: 1px solid #ddd;
+        .project-body {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Approach Grid */
-        .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+        .project-body .tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
         }
 
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-            text-align: center;
+        .project-body h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
 
-        .stat h3 {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin: 0 0 0.5rem 0;
+        .project-body p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 1.25rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .project {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .project:nth-child(even) {
-                direction: ltr;
-            }
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .stat-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .nav-links a {
-                margin: 0 1rem;
-            }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
-    </style>
-</head>
-<body>
 
-    <nav>
-        <div class="logo"><a href="#">Laura DePue</a></div>
-        <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#approach">Approach</a>
-            <a href="#about">About</a>
-            <a href="mailto:lauraldepue@gmail.com">Contact</a>
-        </div>
-    </nav>
+        .skill-pill {
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+        }
 
-    <header class="hero">
-        <span class="tags">Narrative Design • LXD • EdTech • UI/UX</span>
-        <h1>Stories people explore.<br>Learning environments that perform.</h1>
-        <p>I’m a multidisciplinary designer combining narrative architecture, game mechanics, visual UI/UX, and accessibility with higher education instructional design. I turn complex systems and subjects into intuitive, interactive learning experiences.</p>
-        <a href="#work">Explore my work &rarr;</a>
-    </header>
-
-    <section id="work">
-        <span class="tags">Selected Projects</span>
-        <h2 style="font-size: 2.5rem; margin-bottom: 3.5rem;">Story, systems, and learning architecture.</h2>
-
-        <!-- Project 1: Surviving the Border -->
-        <article class="project">
-            <img src="https://images.unsplash.com/photo-1512413914488-66236b283282?w=800&q=80" alt="Mobile interactive experience interface" class="project-img">
-            <div class="project-content">
-                <span class="tags">Interactive Narrative + Scenario-Based Learning</span>
-                <h2>Surviving the Border</h2>
-                <p>A branching mobile interactive experience using narrative design, choice architecture, research, and sound/visual UI to foster empathy and deep engagement. Demonstrated a 72% participant-reported increase in empathy through experiential storytelling.</p>
-                <div>
-                    <span class="tag-pill">Narrative Design</span>
-                    <span class="tag-pill">Decision Architecture</span>
-                    <span class="tag-pill">ARIS Mobile Platform</span>
-                    <span class="tag-pill">LX Research</span>
-                </div>
-            </div>
-        </article>
-
-        <!-- Project 2: Pokemon / LMS Gamification -->
-        <article class="project">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Retro game system representing gamification" class="project-img">
-            <div class="project-content">
-                <span class="tags">Interactive Systems + Gamification & LMS</span>
-                <h2>Pokémon: Global & Local Cultures</h2>
-                <p>Designed three interconnected user paths, progression mechanics, meaningful choices, and visual UI rewards inside the structural constraints of a higher education LMS. Transformed a complex anthropology curriculum into an engaging, gamified online experience.</p>
-                <div>
-                    <span class="tag-pill">Gamification</span>
-                    <span class="tag-pill">LMS Choice Architecture</span>
-                    <span class="tag-pill">Systems Design</span>
-                    <span class="tag-pill">User Pathways</span>
-                </div>
-            </div>
-        </article>
-
-        <!-- Project 3: Digital Accessibility & UI Visual Systems -->
-        <article class="project">
-            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="UX wireframing and design process" class="project-img">
-            <div class="project-content">
-                <span class="tags">UI/UX Design + Accessibility + Faculty Development</span>
-                <h2>Visual Systems & Accessible UX</h2>
-                <p>Created cohesive visual badge systems, clear navigational hierarchies, and accessible UI frameworks. Served as institutional SME for digital accessibility, training faculty on WCAG compliance, Universal Design for Learning (UDL), and Blackboard Ally remediation.</p>
-                <div>
-                    <span class="tag-pill">UI/UX Design</span>
-                    <span class="tag-pill">WCAG & UDL</span>
-                    <span class="tag-pill">Visual Hierarchy</span>
-                    <span class="tag-pill">Blackboard Ally</span>
-                </div>
-            </div>
-        </article>
-
-        <!-- Project 4: Modular Content Architecture -->
-        <article class="project">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80" alt="Online learning and asynchronous course architecture" class="project-img">
-            <div class="project-content">
-                <span class="tags">Instructional Design + Modular Architecture</span>
-                <h2>Asynchronous Course Architecture</h2>
-                <p>Engineered a reusable, high-enrollment online course structure designed for variable term lengths (3- and 6-week formats). Focused on clear student onboarding, predictable UI patterns, Quality Matters (QM) standards, and SOP documentation for faculty execution.</p>
-                <div>
-                    <span class="tag-pill">Quality Matters (QM)</span>
-                    <span class="tag-pill">Information Architecture</span>
-                    <span class="tag-pill">SOP Development</span>
-                </div>
-            </div>
-        </article>
-    </section>
-
-    <section id="approach" style="background-color: var(--bg-alt);">
-        <span class="tags">My Approach</span>
-        <h2 style="font-size: 2.5rem;">Connecting storytelling with systematic instructional design.</h2>
-        <div class="approach-grid">
-            <div>
-                <h3>01 / Narrative & Scenario Design</h3>
-                <p>I build research-backed story frameworks and scenario-based learning paths that transform passive reading into active, decision-driven exploration.</p>
-            </div>
-            <div>
-                <h3>02 / Systems, Game Mechanics & UI</h3>
-                <p>I design branching choices, progress feedback, gamified badges, and intuitive visual UI hierarchy—building engaging user journeys within LMS and EdTech platforms.</p>
-            </div>
-            <div>
-                <h3>03 / Access, UDL & Operational Quality</h3>
-                <p>Accessibility and structure are foundational. I embed WCAG standards, Universal Design for Learning (UDL), Quality Matters (QM) criteria, and clear SOP documentation into every build.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <span class="tags">About Laura</span>
-        <h2 style="font-size: 2.5rem;">Researcher, story designer, UI artist, and LMS strategist.</h2>
-        <p style="font-size: 1.15rem; max-width: 900px;">
-            For over 15 years, I’ve designed digital experiences across higher education, edtech, and creative environments. My background spans narrative design, UI/UX, game mechanics, digital accessibility, and learning management systems. 
-            <br><br>
-            My Master of Library and Information Science (MLIS) guides how I organize information structures and research, while my hands-on higher education experience enables me to partner with faculty, engineer LMS environments, and make complex subjects engaging and accessible to all learners.
-        </p>
-
-        <div class="stat-grid">
-            <div class="stat">
-                <h3>15+</h3>
-                <p>Years in Design & Higher Ed</p>
-            </div>
-            <div class="stat">
-                <h3>72%</h3>
-                <p>Empathy Gain in Mobile Case Study</p>
-            </div>
-            <div class="stat">
-                <h3>25+</h3>
-                <p>Accessibility & UDL Workshops</p>
-            </div>
-            <div class="stat">
-                <h3>10K+</h3>
-                <p>Students Reached via Adaptive LXD</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <h2 style="font-size: 2rem;">Let's design meaningful learning experiences.</h2>
-        <p>Based in Parkersburg, WV, and open to higher education, educational technology, and experience design roles.</p>
-        <br>
-        <a href="mailto:lauraldepue@gmail.com" style="margin-right: 2rem;">Email Laura &rarr;</a>
-        <a href="https://www.linkedin.com/in/lauradepue" target="_blank">LinkedIn &rarr;</a>
-        <p style="margin-top: 4rem; font-size: 0.85rem; color: var(--text-light);">© 2026 Laura DePue. Designed for engagement, clarity, and accessibility.</p>
-    </footer>
-
-</body>
-</html>
+        /* Mockup Components */
+        .mockup

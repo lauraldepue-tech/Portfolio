@@ -55,7 +55,7 @@
             border-bottom: 1px solid var(--card-border);
         }
 
-        .logo {
+        .logo a {
             font-size: 1.25rem;
             font-weight: 800;
             letter-spacing: -0.02em;
@@ -181,7 +181,7 @@
 
         .project-preview {
             background-color: var(--bg-alt);
-            padding: 2.5rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -192,6 +192,15 @@
         .project-card.reverse .project-preview {
             border-right: none;
             border-left: 1px solid var(--card-border);
+        }
+
+        .project-preview img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
         }
 
         .project-body {
@@ -236,54 +245,6 @@
             font-weight: 600;
             padding: 0.3rem 0.75rem;
             border-radius: 6px;
-        }
-
-        /* Mockup Components */
-        .mockup-box {
-            width: 100%;
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 1.25rem;
-            border: 1px solid #cbd5e1;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-        }
-
-        .character-select-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        .char-card {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 0.75rem;
-            background: #f8fafc;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .char-card.active {
-            border-color: var(--accent-gold);
-            background: #fefce8;
-        }
-
-        .badge-graphic {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-weight: bold;
-            font-size: 0.75rem;
-            text-align: center;
-            border: 4px solid var(--accent-gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         /* Approach Cards */
@@ -391,33 +352,13 @@
                 <p>Selected work across interactive storytelling, gamified LMS architecture, healthcare scenario design, and accessible EdTech systems.</p>
             </div>
 
-            <!-- Project 1: Pokemon Gamified Course -->
+            <!-- Project 1: Pokemon Gamified Course with Real Kenshusei Image -->
             <article class="project-card">
                 <div class="project-preview">
-                    <div class="mockup-box">
-                        <div style="background:#0056b3; color:white; padding:8px 12px; font-weight:bold; font-size:0.85rem; border-radius:4px; display:flex; justify-content:space-between; align-items:center;">
-                            <span>POKÉMON: GLOBAL CULTURES</span>
-                            <span style="background:#f4b400; color:#111; font-size:0.7rem; padding:2px 6px; border-radius:3px;">LEVEL UP!</span>
-                        </div>
-                        <p style="font-size:0.75rem; color:#666; margin:10px 0 5px;">SELECT CHARACTER PATH (LMS CHOICE ARCHITECTURE):</p>
-                        <div class="character-select-grid">
-                            <div class="char-card active">
-                                <div style="font-size:1.2rem;">🧙‍♂️</div>
-                                <div>WIZARD</div>
-                            </div>
-                            <div class="char-card">
-                                <div style="font-size:1.2rem;">🎮</div>
-                                <div>GAMER</div>
-                            </div>
-                            <div class="char-card">
-                                <div style="font-size:1.2rem;">🥋</div>
-                                <div>KENSHUSEI</div>
-                            </div>
-                        </div>
-                        <div style="margin-top:12px; padding:10px; background:#f1f5f9; border-radius:6px; font-size:0.75rem; text-align:center;">
-                            🏆 <strong>GENIUS CERTIFICATE UNLOCKED</strong><br>
-                            <em>Extra Points & Creative Submissions Enabled</em>
-                        </div>
+                    <img src="images/kenshusei.jpg" alt="Pokémon Course Character Selection - Kenshusei Path" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none; text-align:center; padding:2rem; background:#e2e8f0; border-radius:8px;">
+                        <strong>[Kenshusei Character Image Placeholder]</strong><br>
+                        <small>Place <code>kenshusei.jpg</code> in your <code>images/</code> folder</small>
                     </div>
                 </div>
                 <div class="project-body">
@@ -435,18 +376,13 @@
                 </div>
             </article>
 
-            <!-- Project 2: Surviving the Border -->
+            <!-- Project 2: Surviving the Border with Real Screenshots -->
             <article class="project-card reverse">
                 <div class="project-preview">
-                    <div class="mockup-box" style="text-align:center;">
-                        <svg width="100" height="60" viewBox="0 0 100 60" style="margin-bottom:10px;">
-                            <rect x="35" y="0" width="30" height="20" rx="3" fill="#0056b3" />
-                            <path d="M50 20 L25 35 M50 20 L75 35" stroke="#94a3b8" stroke-width="2" />
-                            <rect x="10" y="35" width="30" height="20" rx="3" fill="#008080" />
-                            <rect x="60" y="35" width="30" height="20" rx="3" fill="#008080" />
-                        </svg>
-                        <div style="font-size:0.8rem; font-weight:bold; color:#1e293b;">Branching Decision Architecture</div>
-                        <p style="font-size:0.75rem; color:#64748b; margin-top:4px;">ARIS Mobile Platform • Experiential Learning</p>
+                    <img src="images/surviving-the-border.jpg" alt="Visuals and Gameplay Screenshots from Surviving the Border" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none; text-align:center; padding:2rem; background:#e2e8f0; border-radius:8px;">
+                        <strong>[Surviving the Border Screenshots Placeholder]</strong><br>
+                        <small>Place <code>surviving-the-border.jpg</code> in your <code>images/</code> folder</small>
                     </div>
                 </div>
                 <div class="project-body">
@@ -464,46 +400,13 @@
                 </div>
             </article>
 
-            <!-- Project 3: Holmes Health Network -->
+            <!-- Project 3: Real Canvas Badges -->
             <article class="project-card">
                 <div class="project-preview">
-                    <div class="mockup-box">
-                        <div style="font-size:0.8rem; font-weight:bold; color:#0056b3; margin-bottom:8px; text-transform:uppercase;">Cast of Characters (Case Study)</div>
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.7rem;">
-                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">👤 Ben Hughes, CDO</div>
-                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">🩺 Dr. Tori Johnson, MD</div>
-                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">💻 Aaron Miller, IT Analyst</div>
-                            <div style="background:#f8fafc; padding:6px; border-radius:4px; border:1px solid #e2e8f0;">💊 Dr. Olivia Torres, PharmD</div>
-                        </div>
-                        <div style="margin-top:8px; font-size:0.7rem; color:#64748b; text-align:center;">6-Module Narrative Arc: EHR Digital Transformation</div>
-                    </div>
-                </div>
-                <div class="project-body">
-                    <span class="tag">Scenario & Character-Driven Learning</span>
-                    <h3>Holmes Health Network: Healthcare LX Case Study</h3>
-                    <p>Architected an overarching 6-module narrative scenario for healthcare digital transformation courses. Students follow a fictional health system navigating EHR adoption, change management, and telehealth integration through a multi-character perspective (Chief Digital Officer, Physicians, Pharmacists, and IT Analysts).</p>
-                    <div class="skills-list">
-                        <span class="skill-pill">Scenario Design</span>
-                        <span class="skill-pill">Persona Architecture</span>
-                        <span class="skill-pill">Case Study Development</span>
-                        <span class="skill-pill">Corporate & Higher Ed Training</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Project 4: Canvas Badges & Accessibility -->
-            <article class="project-card reverse">
-                <div class="project-preview">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <div class="badge-graphic" style="background:#991b1b;">
-                            RUN WITH<br>CANVAS
-                        </div>
-                        <div class="badge-graphic" style="background:#065f46;">
-                            GROW WITH<br>CANVAS
-                        </div>
-                        <div class="badge-graphic" style="background:#1e40af;">
-                            TRANSFORM<br>CANVAS
-                        </div>
+                    <img src="images/canvas-badges.png" alt="Run, Grow, Transform with Canvas Badges" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none; text-align:center; padding:2rem; background:#e2e8f0; border-radius:8px;">
+                        <strong>[Canvas Badges Image Placeholder]</strong><br>
+                        <small>Place <code>canvas-badges.png</code> in your <code>images/</code> folder</small>
                     </div>
                 </div>
                 <div class="project-body">
@@ -516,6 +419,28 @@
                         <span class="skill-pill">Visual UI Systems</span>
                         <span class="skill-pill">WCAG / UDL</span>
                         <span class="skill-pill">Albright College</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 4: Promotional Flyers & Graphic Design Showcase -->
+            <article class="project-card reverse">
+                <div class="project-preview">
+                    <img src="images/flyers-showcase.jpg" alt="Institutional Marketing Flyers & Graphic Design Samples" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none; text-align:center; padding:2rem; background:#e2e8f0; border-radius:8px;">
+                        <strong>[Graphic Design Flyers Placeholder]</strong><br>
+                        <small>Place <code>flyers-showcase.jpg</code> in your <code>images/</code> folder</small>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <span class="tag">Graphic Design & Marketing Collateral</span>
+                    <h3>Institutional Media, Flyers & Digital Content</h3>
+                    <p>Designed digital and print marketing materials, event flyers, and social media campaigns for the Office of Student Success and academic initiatives at Albright College and partner institutions.</p>
+                    <div class="skills-list">
+                        <span class="skill-pill">Graphic Design</span>
+                        <span class="skill-pill">Marketing Collateral</span>
+                        <span class="skill-pill">Adobe Creative Suite</span>
+                        <span class="skill-pill">Brand Identity</span>
                     </div>
                 </div>
             </article>
@@ -562,7 +487,7 @@
             <p>Based in Parkersburg, WV • Open to Remote & On-Site Higher Ed / EdTech Roles</p>
             <div>
                 <a href="mailto:LauraLDePue@gmail.com" style="margin-right: 1.5rem;">LauraLDePue@gmail.com</a>
-                <a href="https://linkedin.com/in/lauradepue" target="_blank">LinkedIn Profile</a>
+                <a href="https://www.linkedin.com/in/lauraldepue/" target="_blank">LinkedIn Profile</a>
             </div>
             <p style="font-size: 0.8rem; margin-top: 3rem; color: #94a3b8;">© 2026 Laura DePue. Portfolio designed for accessibility and clarity.</p>
         </div>
